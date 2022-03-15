@@ -1,0 +1,24 @@
+﻿@using DotnetRcCar.Common
+
+<Div  Flex="Flex.JustifyContent.Center.AlignItems.Center">
+    <WheelStateIndicator  WheelState="LeftWheelState" Speed="LeftSpeed" />
+    <Figure  Margin="Margin.Is1.FromStart.Is1.FromEnd" Size="FigureSize.Is256x256">
+        <FigureImage Source="images/rc_on.png" AlternateText="Dotnet RC Car" />      
+    </Figure>
+    <WheelStateIndicator WheelState="RightWheelState" Speed="RightSpeed" />
+</Div>
+
+@code {
+
+    [Parameter]
+    public WheelState LeftWheelState { get; set; }
+    [Parameter]
+    public WheelState RightWheelState { get; set; }
+    [Parameter]
+    public Double LeftSpeed { get; set; }
+    [Parameter]
+    public Double RightSpeed { get; set; }
+
+
+
+}

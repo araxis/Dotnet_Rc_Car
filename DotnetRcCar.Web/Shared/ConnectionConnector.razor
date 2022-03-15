@@ -1,0 +1,40 @@
+﻿@using DotnetRcCar.Common
+@inject IConnectionStateTracker _stateTracker
+@inherits OwningComponentBase<IConnectionHandler>
+<Button Outline="true" Clicked="Toggle" Color="Color.Primary" Padding="Padding.Is1">
+    <StateIndecator Connected="_isConnected"/>
+</Button>
+
+@code {
+    bool _isConnected;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _stateTracker.StateChanged += StateTrackerOnStateChanged;
+    }
+
+    private Task StateTrackerOnStateChanged(ConecctionState state)
+    {
+        _isConnected = state.IsConnected;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    public bool ConnectionStateChanged { get; set; }
+
+
+    private async Task Toggle()
+    {
+        if (_isConnected)
+        {
+          await  Service.DisconnectAsync();
+        }
+        else
+        {
+           
+              await Service.ConnectAsync();
+        }
+    }
+
+}

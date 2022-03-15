@@ -1,0 +1,26 @@
+﻿@using DotnetRcCar.Common
+<Div Flex="Flex.Column.AlignContent.Center">
+    @if (WheelState == WheelState.Forward)
+    {
+         <Icon  Name="IconName.ArrowUp" />
+    }
+   
+        @($"{Speed} %")
+    
+    @if (WheelState==WheelState.Backward)
+    {
+         <Icon Name="IconName.ArrowDown"/>
+    }
+   
+</Div>
+
+@code {
+
+
+    [Parameter]
+    public WheelState WheelState { get; set; } = WheelState.Stop;
+
+    [Parameter]
+    public double Speed { get; set; } = 0;
+
+ }

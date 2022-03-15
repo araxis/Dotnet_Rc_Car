@@ -1,0 +1,101 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotnetRcCar.Mobile.Views.MainPage"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:core="clr-namespace:DotnetRcCar.Mobile.Core">
+    <ContentPage.Resources>
+        <!--<Style  TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>-->
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand"  >
+
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Padding="10">
+               
+                <Label  VerticalOptions="Center" HorizontalOptions="Start" Text="{Binding IsConnected, Converter={core:BooleanToConnectionState}}" />
+                <!--Of cource there is better abroach-->
+                <Button  HorizontalOptions="End" IsVisible="{Binding IsConnected, Converter={mct:InvertedBoolConverter}}" Command="{Binding ConnectCommand}" Text="Connect" />
+                <Button  HorizontalOptions="End" IsVisible="{Binding IsConnected}" Command="{Binding DisconnectCommand}" Text="Disconnect" />
+            </StackLayout>
+            <StackLayout   Orientation="Horizontal" Spacing="20" >
+                <Label Text="Accelerometer" VerticalOptions="Center"/>
+                <Switch  IsToggled="{Binding UseAccelerometer, Mode=TwoWay}"   VerticalOptions="End"/>
+
+
+            </StackLayout>
+            <Grid  RowSpacing="5" HorizontalOptions="Center" ColumnSpacing="5"    
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30,30'}">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button ImageSource="top_left.png"  Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"  VerticalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding ForwardLeftCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="top.png"  Grid.Row="0" Grid.Column="1"  HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding ForwardCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="top_right.png" Grid.Row="0" Grid.Column="2"   HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding ForwardRightCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+
+                <Button ImageSource="left.png" Grid.Row="1" Grid.Column="0"   HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding LeftCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="right.png" Grid.Row="1" Grid.Column="2"   HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding RightCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="bottom_left.png" Grid.Row="2" Grid.Column="0"  HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding BackwardLeftCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="bottom.png" Grid.Row="2" Grid.Column="1"   HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding BackwardCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+                <Button ImageSource="bottom_right.png" Grid.Row="2" Grid.Column="2"   HorizontalOptions="Center">
+                    <Button.Behaviors>
+                        <mct:EventToCommandBehavior EventName="Pressed" Command="{Binding BackwardRightCommand}"/>
+                        <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
+                    </Button.Behaviors>
+                </Button>
+
+            </Grid>
+
+
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,74 @@
+﻿@page "/MqttSettings"
+@using Blazored.LocalStorage
+@using DotnetRcCar.Common
+@inherits OwningComponentBase<IBrokerSettingsRepository>
+@inject ILocalStorageService _localStorageService
+@inject INotificationService _notificationService
+<h3>MqttSettings</h3>
+
+<Field>
+    <FieldLabel>Host</FieldLabel>
+    <TextEdit Placeholder="Enter Host"  @bind-Text="_host"/>
+</Field>
+<Field>
+    <FieldLabel>Port</FieldLabel>
+    <NumericEdit  TValue="int"   Placeholder="Enter Port" @bind-Value="_port" />
+</Field>
+<Field>
+    <FieldLabel>Path</FieldLabel>
+    <TextEdit Placeholder="Enter Path"  @bind-Text="_path"/>
+</Field>
+
+<Button Loading="@_saving" Color="Color.Primary" Disabled="@(!CanSubmit || _saving)" Clicked="Submit">Save</Button>
+
+
+
+@code {
+
+
+    string _host="";
+    string _path="mqtt";
+    int _port;
+    bool _saving;
+  
+
+    bool CanSubmit => !string.IsNullOrWhiteSpace(_host) && _port > 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        var settings = await Service.GetSetting();
+        if (settings is not null)
+        {
+            _host = settings.Host;
+            _port = settings.Port;
+            StateHasChanged();
+        }
+
+
+    
+    }
+
+
+    private async Task Submit(object obj)
+    {
+        try
+        {
+            _saving = true;
+            var setting = new BrokerSettings(_host, _port);
+            await Service.SetSetting(setting);
+            await _notificationService.Success("Operation Succeed","Connected");
+        }
+        finally
+        {
+            _saving = false;
+        }
+     
+        
+    }
+
+ 
+
+
+
+}

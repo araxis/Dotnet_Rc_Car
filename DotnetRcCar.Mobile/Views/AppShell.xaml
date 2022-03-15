@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:views="clr-namespace:DotnetRcCar.Mobile.Views"
+       x:Class="DotnetRcCar.Mobile.Views.AppShell">
+
+      <!--<TabBar Title="Test">
+          <Tab Title="Test">
+                 <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+          </Tab>
+         <Tab Title="New Page">
+                 <ShellContent ContentTemplate="{DataTemplate views:NewPage1}" />
+          </Tab>
+    </TabBar>-->
+        <Shell.FlyoutHeader >
+           <Image  Aspect="Fill" Source="logo.png"/>
+    </Shell.FlyoutHeader>
+
+        
+            <ShellContent Title="Main" ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent Title="Setting"  ContentTemplate="{DataTemplate views:MqttSettingPage}" />
+      
+
+</Shell>

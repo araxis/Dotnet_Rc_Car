@@ -1,0 +1,109 @@
+﻿@using DotnetRcCar.Common
+@inject IRemoteController _controller
+
+<Div Display="Display.InlineBlock">
+    <Row Margin="Margin.Is1.FromBottom">
+        <Column>
+
+            <Button Color="Color.Primary"
+                    @onmousedown="async () => await _controller.ForwardLeft()"
+                    @onmouseup="async () => await _controller.Stop()">
+                <div class="up-left">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.Forward()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.ForwardRight()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+                <div class="up-right">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+
+            </Button>
+        </Column>
+    </Row>
+    <Row Margin="Margin.Is1.FromBottom">
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.TurnLeft()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <div class="left">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onclick="async ()=>await _controller.Stop()">
+
+                <Icon Name="IconName.Stop" IconSize="IconSize.x3" />
+
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.TurnRight()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <div class="right">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+            </Button>
+        </Column>
+
+    </Row>
+    <Row>
+        <Column>
+
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.BackwardLeft()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <div class="back-left">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.Backward()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <div class="back">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+            </Button>
+        </Column>
+        <Column>
+            <Button Color="Color.Primary"
+                    @onmousedown="async ()=>await _controller.BackwardRight()"
+                    @onmouseup="async ()=>await _controller.Stop()">
+
+                <div class="back-right">
+                    <Icon Name="IconName.ArrowUp" IconSize="IconSize.x3" />
+                </div>
+
+            </Button>
+        </Column>
+    </Row>
+</Div>
+@code {
+
+}

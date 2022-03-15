@@ -1,0 +1,37 @@
+﻿@using DotnetRcCar.Common
+@inherits LayoutComponentBase
+@inject IConnectionStateTracker _stateTracker
+
+<Layout>
+    <LayoutHeader Padding="Padding.Is1.FromStart">
+        <NavMenu   />
+    </LayoutHeader>
+    <LayoutContent>
+        <Container>
+            @Body
+        </Container>
+       
+    </LayoutContent>
+    <LayoutFooter>
+       
+    </LayoutFooter>
+</Layout>
+
+@code {
+
+    bool _connected;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _stateTracker.StateChanged += StateChanged;
+    }
+
+    private  Task StateChanged(ConecctionState state)
+    {
+        _connected = state.IsConnected;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+}

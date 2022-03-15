@@ -1,0 +1,26 @@
+﻿
+<Div Flex="Flex.AlignItems.Center">
+   
+    @if(ShowText) {@StateText}
+    <Icon Style="@(@$"color:{IconColor}")" Name="IconName.Circle" Margin="Margin.Is1.FromStart" />
+</Div>
+
+@code {
+
+    string IconColor =>Connected ? "green" : "red";
+    string StateText => Connected ? ConnectedText : DisconnectedText;
+    [Parameter]
+    public string DisconnectedText { get; set; } = "Disconnected";
+
+    [Parameter]
+    public string ConnectedText { get; set; } = "Connected";
+
+    [Parameter]
+    public bool Connected { get; set; }
+
+    [Parameter]
+    public bool ShowText { get; set; } = true;
+
+    
+
+}

@@ -1,0 +1,47 @@
+﻿@using DotnetRcCar.Common
+<Table Responsive="true" FixedHeader FixedHeaderTableHeight="@Height" Striped="true">
+
+    <TableHeader>      
+                  @Title       
+        <TableRow>
+            <TableHeaderCell>Message</TableHeaderCell>
+            <TableHeaderCell>Client</TableHeaderCell>
+            <TableHeaderCell>Date</TableHeaderCell>
+        </TableRow>
+    </TableHeader>
+    <TableBody>
+        @if (!Data.Any())
+        {
+            <TableRow>
+                <TableRowCell ColumnSpan=3 TextAlignment="TextAlignment.Center">Empty</TableRowCell>
+               
+            </TableRow>
+        }
+        else
+        {
+            @foreach (var msg in Data)
+            {
+
+                <TableRow>
+                    <TableRowCell>@msg.Message</TableRowCell>
+                    <TableRowCell>@msg.ClientId</TableRowCell>
+                    <TableRowCell>@msg.Date</TableRowCell>
+                </TableRow>
+
+            }
+
+        }
+
+    </TableBody>
+</Table>
+
+@code {
+    [Parameter]
+    public IEnumerable<DeviceMessage> Data { get; set; } = new List<DeviceMessage>();
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Height { get; set; } = "300px";
+}

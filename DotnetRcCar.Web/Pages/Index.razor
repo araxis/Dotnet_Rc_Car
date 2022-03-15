@@ -1,0 +1,97 @@
+﻿@page "/"
+@using Direction = DotnetRcCar.Common.WheelState
+@using DotnetRcCar.Common
+@inject IConnectionStateTracker _connectionTracker;
+@inject IDeviceStateTracker _deviceStateTracker
+@inject IMessageListener _messageListener;
+@implements IAsyncDisposable
+
+
+<PageTitle>Dotnet RC Car</PageTitle>
+
+
+<Row>
+
+    <Column TextAlignment="TextAlignment.Center" ColumnSize="ColumnSize.Is12.OnMobile.IsHalf.OnDesktop">
+         <Controller />
+    </Column>
+     <Column TextAlignment="TextAlignment.Center" ColumnSize="ColumnSize.Is12.OnMobile.IsHalf.OnDesktop">
+             <CarDirectionIndicator LeftWheelState="deviceState.LeftWheelDirection" LeftSpeed="deviceState.LeftSpeed"
+                           RightWheelState="deviceState.RightWheelDirection" RightSpeed="deviceState.RightSpeed" />
+     </Column>
+
+</Row>
+<Row>
+   
+    <Column ColumnSize="ColumnSize.Is12.OnMobile.IsHalf.OnDesktop">
+         @*There are better approaches, but I'm so tired, so don't panic :)*@
+        <DeviceMessageTable Title="Commands" Data="@_messages.Where(c=>c.Message.StartsWith("c")).OrderByDescending(c=>c.Date)" />
+    </Column>
+
+    <Column ColumnSize="ColumnSize.Is12.OnMobile.IsHalf.OnDesktop">
+        <DeviceMessageTable Title="States" Data="@_messages.Where(c=>c.Message.StartsWith("s")).OrderByDescending(c=>c.Date)" />
+    </Column>
+
+
+
+</Row>
+
+@code {
+
+
+    DeviceState deviceState = new(WheelState.Stop, WheelState.Stop, 0, 0);
+
+    List<DeviceMessage> _messages = new List<DeviceMessage>();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        await base.OnInitializedAsync();
+
+        _deviceStateTracker.StateChanged += DeviceStateUpdated;
+        _connectionTracker.StateChanged += ControllerStateChanged;
+        _messageListener.DeviceMessageReceived += MessageReceived;
+
+
+    }
+
+    private async Task ControllerStateChanged(ConecctionState state)
+    {
+        if (state.IsConnected)
+        {
+            await _deviceStateTracker.StartTracking();
+            await _messageListener.Start();
+        }
+
+    }
+
+    private Task MessageReceived(DeviceMessage message)
+    {
+        _messages.Add(message);
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task DeviceStateUpdated(DeviceState state)
+    {
+        deviceState = state;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+
+    public async ValueTask DisposeAsync()
+    {
+        // _deviceStateTracker.StateChanged -= DeviceStateUpdated;
+        _connectionTracker.StateChanged -= ControllerStateChanged;
+        _messageListener.DeviceMessageReceived -= MessageReceived;
+        if (_connectionTracker.IsConnected)
+        {
+            // await _deviceStateTracker.StopTracking();
+            await _messageListener.Stop();
+        }
+
+    }
+
+}
