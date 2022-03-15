@@ -5,13 +5,16 @@ The project consists of a web application, mobile application, an esp32 hardware
 <table align="center">
    <tbody>
       <tr>
-   <td width="33%">
+   <td width="25%">
       <img src="https://user-images.githubusercontent.com/1418779/158342063-81faf540-3421-470d-94cd-0a2626988c14.png" >
    </td>
-   <td width="33%">
+   <td width="25%">
       <img src="https://user-images.githubusercontent.com/1418779/158209597-2e0f12f3-ce57-40e8-9280-aff0aeed20f6.png" >
    </td>
-   <td width="33%">
+   <td width="25%">
+      <img src="https://user-images.githubusercontent.com/1418779/158358346-30a061af-284e-4d9e-ae57-1a10a82c78c2.png">
+   </td>
+   <td width="25%">
       <img src="https://user-images.githubusercontent.com/1418779/158344238-53fad39f-65f3-47b7-ade2-22d0e1f48765.png">
    </td>
    </tr>
