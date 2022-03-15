@@ -32,4 +32,4 @@ The project consists of a web application, mobile application, an esp32 hardware
     *   Libraries
         *   [.NET nanoFramework libraries](https://github.com/nanoframework?type=source)
         *   [.NET nanoFramework M2Mqtt](https://github.com/nanoframework/nanoFramework.m2mqtt) is an initial port of the MQTT Client Library [M2Mqtt](https://github.com/eclipse/paho.mqtt.m2mqtt)
-        *   The MQTT broker that I used is [EMQX](https://www.emqx.io/).
+*   The MQTT broker that I used is [EMQX](https://www.emqx.io/).
