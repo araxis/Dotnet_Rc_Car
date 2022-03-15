@@ -36,3 +36,8 @@ The project consists of a web application, mobile application, an esp32 hardware
         *   [.NET nanoFramework libraries](https://github.com/nanoframework?type=source)
         *   [.NET nanoFramework M2Mqtt](https://github.com/nanoframework/nanoFramework.m2mqtt) is an initial port of the MQTT Client Library [M2Mqtt](https://github.com/eclipse/paho.mqtt.m2mqtt)
 *   The MQTT broker that I used is [EMQX](https://www.emqx.io/).
+
+# Tips
+- It is currently (3/15/2022) necessary to use [Visual Studio 2022 version 17.2 Preview](https://docs.microsoft.com/en-us/visualstudio/releases/2022/release-notes-preview) to create MAUI applications.
+- for developing .net nanoframework applications see [Getting Started Guide for managed code (C#)](https://docs.nanoframework.net/content/getting-started-guides/getting-started-managed.html)
+- In order to improve performance, I installed the MQTT broker on WLS2 Ubuntu. if you do the same please use [Netsh interface portproxy commands](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-interface-portproxy#delete-v4tov4) for port forwarding.
