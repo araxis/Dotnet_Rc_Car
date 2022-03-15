@@ -21,6 +21,7 @@ This is a Remote Control Car, implemented entirely by DOTNET.
 The project consists of a web application, mobile application, an esp32 hardware and MQTT broker.
 
 *   Web application is a [Blazor WASM](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) application.
+    * Libraries
     *   [MQTTnet](https://github.com/dotnet/MQTTnet) is a high performance .NET library for MQTT based communication
     *   [Blazorise](Blazorise) is a component library built on top of Blazor with support for CSS frameworks like Bootstrap, Bulma, AntDesign and Material.
     *   [Blazored LocalStorage](https://github.com/Blazored/LocalStorage) is a library that provides access to the browsers local storage APIs for Blazor applications
