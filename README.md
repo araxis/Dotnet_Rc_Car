@@ -1,7 +1,7 @@
 # Dotnet Rc Car
 
-This is a Remote Control Car, implemented entirely by DOTNET.
-
+# This is a Remote Control Car, implemented entirely by DOTNET.
+The project consists of a web application, mobile application, an esp32 hardware and MQTT broker.
 <table align="center">
    <tbody>
       <tr>
@@ -17,8 +17,6 @@ This is a Remote Control Car, implemented entirely by DOTNET.
    </tr>
    </tbody>
 </table>
-
-The project consists of a web application, mobile application, an esp32 hardware and MQTT broker.
 
 *   Web application is a [Blazor WASM](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) application.
     * Libraries
