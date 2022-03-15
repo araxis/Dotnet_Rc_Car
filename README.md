@@ -29,8 +29,9 @@ The project consists of a web application, mobile application, an esp32 hardware
     *   Libraries
         *   [MQTTnet](https://github.com/dotnet/MQTTnet) is a high performance .NET library for MQTT based communication
         *   [.NET MAUI Community Toolkit](https://github.com/CommunityToolkit/Maui) is a collection of common elements for development with .NET MAUI that developers tend to replicate across multiple apps.
-    *   [MVVM Helpers](https://github.com/jamesmontemagno/mvvm-helpers) Collection of MVVM helper classes for any application.
+        *   [MVVM Helpers](https://github.com/jamesmontemagno/mvvm-helpers) Collection of MVVM helper classes for any application.
 *   Esp32 app is a [.net nanoframework](https://www.nanoframework.net/) application.
-    *   [.NET nanoFramework libraries](https://github.com/nanoframework?type=source)
-    *   [.NET nanoFramework M2Mqtt](https://github.com/nanoframework/nanoFramework.m2mqtt) is an initial port of the MQTT Client Library [M2Mqtt](https://github.com/eclipse/paho.mqtt.m2mqtt)
-*   The MQTT broker that I used is [EMQX](https://www.emqx.io/).
+    *   Libraries
+        *   [.NET nanoFramework libraries](https://github.com/nanoframework?type=source)
+        *   [.NET nanoFramework M2Mqtt](https://github.com/nanoframework/nanoFramework.m2mqtt) is an initial port of the MQTT Client Library [M2Mqtt](https://github.com/eclipse/paho.mqtt.m2mqtt)
+        *   The MQTT broker that I used is [EMQX](https://www.emqx.io/).
