@@ -30,6 +30,7 @@ namespace DotnetRcCar.Mobile
                .AddTransient<IAccelerometerController,AccelerometerController>()
                .AddSingleton<IConnectionHandler,MqttConnectionHandler>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<MqttSettingPage>();
             builder.Services.AddTransient<MainPageViewModel>();
             builder.Services.AddTransient<MqttSettingPageViewModel>();
           

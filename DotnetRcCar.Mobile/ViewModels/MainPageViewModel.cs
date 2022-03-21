@@ -49,6 +49,7 @@ namespace DotnetRcCar.Mobile.ViewModels
 
         public MainPageViewModel(IRemoteController controller, IAccelerometerController accelerometerController, IConnectionStateTracker connectionStateTracker, IConnectionHandler connectionHandler)
         {
+            Title = "Dotnet Rc Car";
 
             _controller = controller;
             _accelerometerController=accelerometerController;

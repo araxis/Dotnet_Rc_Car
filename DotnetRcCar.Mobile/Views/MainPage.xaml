@@ -2,13 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DotnetRcCar.Mobile.Views.MainPage"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:core="clr-namespace:DotnetRcCar.Mobile.Core">
-    <ContentPage.Resources>
-        <!--<Style  TargetType="Button">
-            <Setter Property="BackgroundColor" Value="Transparent"/>
-        </Style>-->
-
-    </ContentPage.Resources>
+             xmlns:core="clr-namespace:DotnetRcCar.Mobile.Core"
+             Title="Dotnet Rc Car">
 
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand"  >
@@ -31,6 +26,7 @@
 
                 <Grid.RowDefinitions>
 
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -90,6 +86,7 @@
                         <mct:EventToCommandBehavior EventName="Released" Command="{Binding StopCommand}"/>
                     </Button.Behaviors>
                 </Button>
+                <Image Grid.Row="3" Grid.ColumnSpan="3" Source="rc2o.png"/>
 
             </Grid>
 

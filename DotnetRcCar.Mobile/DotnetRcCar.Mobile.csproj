@@ -11,7 +11,7 @@
 		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
      <LangVersion>10.0</LangVersion>
 		<!-- Display name -->
-		<ApplicationTitle>DotnetRcCar.Mobile</ApplicationTitle>
+		<ApplicationTitle>Dotnet Rc Car</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.dotnetrccar.mobile</ApplicationId>
@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\bottom_left.png" />
 	  <None Remove="Resources\Images\bottom_right.png" />
 	  <None Remove="Resources\Images\left.png" />
+	  <None Remove="Resources\Images\rc2o.png" />
 	  <None Remove="Resources\Images\right.png" />
 	  <None Remove="Resources\Images\top.png" />
 	  <None Remove="Resources\Images\top_left.png" />
